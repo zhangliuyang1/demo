@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+</head>
+    <script>
+        var person = new Array();
+        person[0] = 'zzz';
+        person[1] = 'lll';
+        person[2] = 'yyy';
+        /*for(var i=0;i<person.length;i++){
+            alert(person[i]);
+        }*/
+
+        var student = new Object();
+        student.name = 'zzzlllyyy';
+        student.age = 18;
+        student.sex = 1;
+        //document.write(student.name)
+
+        var job = {date : "10-7",num:123,address:"jiashenzhonri"};
+        /*for(var m in job){
+            alert(m +":"+ job[m]);
+        }*/
+        //alert(job.date);
+
+        var s = "visit W3CSchool";
+        var reg = new RegExp("w3c\\w+","i");
+        var patt = /w3c\w+/i;
+        var res = s.match(patt);
+        //alert(res);
+       /* function myFunction(){
+            var str = '哈哈哈';
+            setTimeout(function(){alert("hello")},3000);
+        }
+
+        function functest(str){
+           alert("hello");
+        }*/
+
+        var x = new String();
+        var y = new String();
+
+    </script>
+<body>
+<button id="btn" type="button" onclick="myFunction()">点击</button>
+<div>
+<p id="showText">heiheihie</p>
+    </div>
+</body>
+</html>
