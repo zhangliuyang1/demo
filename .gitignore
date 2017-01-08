@@ -1,6 +1,5 @@
 *.class
 *.war
-*.jar
 *.iml
 .*
 .settings
