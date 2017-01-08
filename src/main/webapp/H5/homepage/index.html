@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+<script type="text/javascript" src="js/homePage.js"></script>
+<script>
+    var preUrl = "http://localhost:8080";
+
+
+
+    $(".butCli").live("click",function(){
+        $.get(preUrl + "/demo/zly/admin/getStudentInfo",function(data){
+            var data = $.parseJSON(data);
+            if(data.code == 0){
+                $('.userName ul').html('<li>'+data.data.name+'</li><li>'+data.data.age+'</li>');
+                alert(data.data.name);
+            }else {
+                alert("错误");
+            }
+
+        });
+    });
+
+</script>
+<body>
+
+HELLO WORLD!
+
+<input type="button" class="butCli" value="点击事件">
+
+<div class="userName">
+    <ul></ul>
+</div>
+</body>
+</html>

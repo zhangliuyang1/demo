@@ -33,7 +33,7 @@ public class TestController {
     @ResponseBody
     public Map<String,Object> getStudentInfo(){
         Map<String,Object> result = new HashMap<String,Object>();
-        Student student = new Student("zzz",111);
+        Student student = new Student(1,"zly",18,new BigDecimal(60),new BigDecimal(170));
         result.put("code",0);
         result.put("data",student);
         return result;
@@ -41,7 +41,7 @@ public class TestController {
 
     /**
      *
-     * @param file
+     * @param
      * @return
      * @throws Exception
      */
@@ -53,14 +53,16 @@ public class TestController {
         MultipartFile img = request1.getFile("file");
         String fileName = img.getOriginalFilename();
         String root = request.getSession().getServletContext().getRealPath("/");
-        File  tempFile = new File(root,new Date().getTime() + String.valueOf(fileName));
+        long timestamp = new Date().getTime();
+        String fname = timestamp + fileName;
+        File  tempFile = new File(root+"tmp/",fname);
 
         if (!tempFile.getParentFile().exists()){
             tempFile.getParentFile().mkdirs();
         }
         img.transferTo(tempFile);
 
-        result.put("url",tempFile.getPath());
+        result.put("url","localhost:8080/demo/tmp/"+fname);
         return result;
     }
 
@@ -93,4 +95,5 @@ public class TestController {
         return result;
 
     }
+
 }
