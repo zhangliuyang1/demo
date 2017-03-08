@@ -520,6 +520,18 @@
       <version>1.4.0</version>
     </dependency>
 
+    <!-- 限制跨域访问 -->
+    <dependency>
+      <groupId>com.thetransactioncompany</groupId>
+      <artifactId>cors-filter</artifactId>
+      <version>2.5</version>
+    </dependency>
+    <dependency>
+      <groupId>com.thetransactioncompany</groupId>
+      <artifactId>java-property-utils</artifactId>
+      <version>1.10</version>
+    </dependency>
+
   </dependencies>
   <profiles>
     <profile>
@@ -530,6 +542,12 @@
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
+    </profile>
+    <profile>
+      <id>develop</id>
+      <properties>
+        <env.profile>develop</env.profile>
+      </properties>
     </profile>
     <profile>
       <id>remote</id>
@@ -550,12 +568,7 @@
         <filtering>true</filtering>
       </resource>
       <resource>
-        <directory>src/main/resources</directory>
-        <excludes>
-          <exclude>doc/**</exclude>
-          <exclude>local/**</exclude>
-          <exclude>remote/**</exclude>
-        </excludes>
+        <directory>src/main/resources/spring</directory>
       </resource>
       <resource>
         <directory>src/main/resources/${env.profile}</directory>
@@ -569,6 +582,11 @@
           <source>1.8</source>
           <encoding>UTF-8</encoding>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.0.0</version>
       </plugin>
     </plugins>
   </build>

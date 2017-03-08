@@ -32,7 +32,7 @@
         </property>
     </bean>
     <!-- 启动SpringMVC的注解功能，完成请求和注解POJO的映射 -->
-    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
             <list>
                 <ref bean="stringHttpMessageConverter"></ref>
@@ -40,6 +40,7 @@
             </list>
         </property>
     </bean>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
     <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -58,8 +59,9 @@
         <property name="maxInMemorySize" value="40960" />
     </bean>
 
-
-    <bean id="propertyConfigurerController" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+<!--
+    <bean id="propertyConfigurerController"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
                 <value>classpath:configuration.properties</value>
@@ -67,5 +69,5 @@
                 <value>classpath:log4j.properties</value>
             </list>
         </property>
-    </bean>
+    </bean>-->
 </beans>
